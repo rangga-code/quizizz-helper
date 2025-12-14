@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quizizz Cheat</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/math.css">
+    <link rel="stylesheet" href="assets/css/obfuscate.css">
+    <link rel="stylesheet" href="assets/css/glitch.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Custom CSS for redesign -->
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --dark-bg: #0f0f23;
+            --card-bg: rgba(25, 25, 45, 0.9);
+            --text-glow: 0 0 10px rgba(102, 126, 234, 0.8);
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 20%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+        }
+        
+        .main-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .card-header {
+            background: var(--primary-gradient);
+            border-bottom: none;
+            padding: 2rem 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .input-group {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group:focus-within {
+            border-color: rgba(102, 126, 234, 0.8);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        
+        .input-group-text {
+            background: transparent;
+            border: none;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .form-control {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 1rem 0.5rem;
+        }
+        
+        .form-control:focus {
+            background: transparent;
+            color: white;
+            box-shadow: none;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-primary {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-title {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .step-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .glitch {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff;
+            animation: glitch 725ms infinite;
+        }
+        
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff;
+            }
+            15% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff;
+            }
+            16% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff;
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff;
+            }
+            50% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff;
+            }
+            99% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff;
+            }
+            100% {
+                text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff;
+            }
+        }
+        
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .results-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .question-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .question-text {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .answer-text {
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(102, 126, 234, 0.2);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 2.2rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn-primary {
+                padding: 0.8rem 1.5rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>Quizizz Cheat
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-question-circle me-1"></i> How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-code me-1"></i> API</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-shrink-0">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="main-card">
+                        <div class="card-header text-center">
+                            <h1 class="glitch" data-text="Quizizz Cheat">Quizizz Cheat</h1>
+                            <p class="card-subtitle">Get answers for any Quizizz game instantly</p>
+                        </div>
+                        <div class="card-body p-4 p-md-5">
+                            <div class="card-title text-center mb-4">
+                                <div id="obfuscate-text"></div>
+                                <h3 class="text-white mb-3">Enter Quiz Details</h3>
+                                <p class="text-muted">Enter the Quizizz game PIN or URL to get answers</p>
+                            </div>
+                            
+                            <form id="form-code" action="">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-key"></i>
+                                    </span>
+                                    <input id="_data" type="text" class="form-control" placeholder="Enter Quizizz PIN or URL (e.g., 123456 or https://quizizz.com/join?gc=123456)" value="" aria-describedby="basic-addon1">
+                                </div>
+                            </form>
+                            
+                            <div class="text-center">
+                                <button onclick="parseQuizizz()" class="btn btn-primary" type="submit">
+                                    <i class="fas fa-scroll me-2"></i> Get Answers
+                                </button>
+                            </div>
+                            
+                            <div class="info-box mt-5">
+                                <div class="info-title">
+                                    <i class="fas fa-info-circle"></i> How to use:
+                                </div>
+                                <p class="info-text">
+                                    1. Copy the Quizizz game PIN or URL from your teacher's screen<br>
+                                    2. Paste it in the input field above<br>
+                                    3. Click "Get Answers" to retrieve all questions and answers
+                                </p>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="step-box">
+                                        <div class="step-number">1</div>
+                                        <div class="step-text">Enter PIN</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="step-box">
+                                        <div class="step-number">2</div>
+                                        <div class="step-text">Get Answers</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="step-box">
+                                        <div class="step-number">3</div>
+                                        <div class="step-text">Ace the Quiz</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Section -->
+                    <div id="qna" class="results-container">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="text-white mb-0"><i class="fas fa-list-check me-2"></i> Quiz Results</h3>
+                            <button class="btn btn-outline-light btn-sm" onclick="copyAllAnswers()">
+                                <i class="fas fa-copy me-1"></i> Copy All
+                            </button>
+                        </div>
+                        <div id="results-content">
+                            <!-- Results will be dynamically inserted here -->
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary" onclick="clearResults()">
+                                <i class="fas fa-trash me-1"></i> Clear Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white mb-0">
+                        © <span id="year"></span> Quizizz Cheat Tool. For educational purposes only.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <p class="text-white mb-0">
+                        Made by <a href="https://instagram.com/hanif_az.sq.61" target="_blank">MRHRTZ</a> 
+                        | Template by <a href="https://instagram.com/ini.tobz" target="_blank">TOBZ</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="assets/js/faker.min.js"></script>
+    <script src="assets/js/bundle.min.js"></script>
+    <script src="assets/js/obfuscate.js"></script>
+    
+    <!-- Custom JavaScript for the redesign -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mock function for demonstration (since actual parseQuizizz function is in bundle.min.js)
+        function parseQuizizz() {
+            const input = document.getElementById('_data').value.trim();
+            
+            if (!input) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Input Required',
+                    text: 'Please enter a Quizizz PIN or URL',
+                    confirmButtonText: 'OK',
+                    background: '#1a1a2e',
+                    color: 'white'
+                });
+                return;
+            }
+            
+            // Show loading state
+            Swal.fire({
+                title: 'Fetching Answers...',
+                text: 'Please wait while we retrieve the quiz data',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+                background: '#1a1a2e',
+                color: 'white'
+            });
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                Swal.close();
+                
+                // Show results container
+                document.getElementById('qna').style.display = 'block';
+                
+                // Mock results for demonstration
+                const mockResults = [
+                    { question: "What is the capital of France?", answer: "Paris" },
+                    { question: "What is 2 + 2?", answer: "4" },
+                    { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" },
+                    { question: "What is the chemical symbol for gold?", answer: "Au" },
+                    { question: "Which planet is known as the Red Planet?", answer: "Mars" }
+                ];
+                
+                // Display results
+                const resultsContent = document.getElementById('results-content');
+                resultsContent.innerHTML = '';
+                
+                mockResults.forEach((item, index) => {
+                    const questionCard = document.createElement('div');
+                    questionCard.className = 'question-card';
+                    questionCard.innerHTML = `
+                        <div class="d-flex align-items-start">
+                            <div class="question-number">${index + 1}</div>
+                            <div style="flex: 1;">
+                                <div class="question-text">${item.question}</div>
+                                <div class="answer-text mt-2">
+                                    <strong>Answer:</strong> ${item.answer}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    resultsContent.appendChild(questionCard);
+                });
+                
+                // Scroll to results
+                document.getElementById('qna').scrollIntoView({ behavior: 'smooth' });
+                
+            }, 1500);
+        }
+        
+        // Copy all answers function
+        function copyAllAnswers() {
+            const answerElements = document.querySelectorAll('.answer-text');
+            let allAnswers = '';
+            
+            answerElements.forEach((el, index) => {
+                allAnswers += `${index + 1}. ${el.textContent.replace('Answer:', '').trim()}\n`;
+            });
+            
+            navigator.clipboard.writeText(allAnswers).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Copied!',
+                    text: 'All answers have been copied to clipboard',
+                    confirmButtonText: 'OK',
+                    background: '#1a1a2e',
+                    color: 'white',
+                    timer: 2000
+                });
+            });
+        }
+        
+        // Clear results function
+        function clearResults() {
+            document.getElementById('results-content').innerHTML = '';
+            document.getElementById('qna').style.display = 'none';
+            document.getElementById('_data').value = '';
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Cleared!',
+                text: 'Results have been cleared',
+                confirmButtonText: 'OK',
+                background: '#1a1a2e',
+                color: 'white',
+                timer: 1500
+            });
+        }
+        
+        // Add some interactive effects to the input
+        document.getElementById('_data').addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        
+        document.getElementById('_data').addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+
+</html>
